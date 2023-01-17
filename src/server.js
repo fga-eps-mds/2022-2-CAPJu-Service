@@ -5,7 +5,7 @@ import { config } from "dotenv";
 config();
 
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017")
+  .connect( "mongodb+srv://capju:capju@cluster0.cum9hpg.mongodb.net/?retryWrites=true&w=majority")
   .then(() => {
     console.log("Connected to DB!");
   })
