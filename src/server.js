@@ -1,28 +1,18 @@
 import app from "./app.js";
 import mongoose from "mongoose";
 import { config } from "dotenv";
-import https from 'https';
-import fs from 'fs';
-import path from 'path';
+
 
 config();
 
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017")
+  .connect("mongodb+srv://capju:capju@cluster0.cum9hpg.mongodb.net/?retryWrites=true&w=majority")
   .then(() => {
     console.log("Connected to DB!");
   })
   .catch((err) => {
     console.log("Error:", err.message);
   });
-
-// const __dirname = './'
-// const sslServer = https.createServer({
-//     key: fs.readFileSync(path.join(__dirname, 'cert', 'key.pem')),
-//     cert: fs.readFileSync(path.join(__dirname, 'cert', 'cert.pem')),
-//     },
-//     app
-// )
 
 app.listen(process.env.PORT || 3333, () => console.log("Server running"));
 
