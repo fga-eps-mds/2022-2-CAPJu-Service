@@ -18,6 +18,13 @@ routes.get('/', (req, res) => {
   });
 });
 
+routes.get('/', (req, res) => {
+  res.json({
+    status: 'OK',
+    message: 'Up and running',
+  });
+});
+
 //Rotas de processos
 routes.get(
   "/processes",
