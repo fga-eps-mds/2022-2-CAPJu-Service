@@ -3,10 +3,16 @@ import FlowController from "./controllers/FlowController.js";
 import ProcessController from "./controllers/ProcessController.js";
 import StageController from "./controllers/StageController.js";
 import UnityController from "./controllers/UnityController.js";
+import EmailController from "./controllers/EmailController.js";
 import { protect, authRole } from "./middleware/authMiddleware.js";
 import { ROLE } from "./schemas/role.js";
 
 const routes = Router();
+//Rotas de email
+routes.get(
+  "/sendFlowsAtrasados",
+  EmailController.sendEmail
+);
 
 //Rotas de processos
 routes.get(
