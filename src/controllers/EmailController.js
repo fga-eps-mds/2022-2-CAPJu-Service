@@ -11,9 +11,7 @@ class EmailController {
         dataInicio: "01/01/2023",
         duracao: 10,
         tempoAtrasado: 6,
-        emails: [
-          "capju.eps.mds@gmail.com",
-        ],
+        emails: ["capju.eps.mds@gmail.com"],
       },
       {
         fluxo: "Fluxo de aposentadoria",
@@ -22,9 +20,7 @@ class EmailController {
         dataInicio: "10/01/2023	",
         duracao: 5,
         tempoAtrasado: 2,
-        emails: [
-          "capju.eps.mds@gmail.com",
-        ],
+        emails: ["capju.eps.mds@gmail.com"],
       },
       {
         fluxo: "Fluxo de aposentadoria",
@@ -33,9 +29,7 @@ class EmailController {
         dataInicio: "10/01/2023",
         duracao: 5,
         tempoAtrasado: 2,
-        emails: [
-          "capju.eps.mds@gmail.com",
-        ],
+        emails: ["capju.eps.mds@gmail.com"],
       },
       {
         fluxo: "Fluxo de invalidez",
@@ -44,9 +38,7 @@ class EmailController {
         dataInicio: "10/12/2022",
         duracao: 30,
         tempoAtrasado: 7,
-        emails: [
-          "capju.eps.mds@gmail.com",
-        ],
+        emails: ["capju.eps.mds@gmail.com"],
       },
       {
         fluxo: "Fluxo de invalidez",
@@ -55,9 +47,7 @@ class EmailController {
         dataInicio: "02/01/2023",
         duracao: 8,
         tempoAtrasado: 7,
-        emails: [
-          "capju.eps.mds@gmail.com",
-        ],
+        emails: ["capju.eps.mds@gmail.com"],
       },
       {
         fluxo: "Fluxo de divorcio",
@@ -66,9 +56,7 @@ class EmailController {
         dataInicio: "28/12/2023",
         duracao: 7,
         tempoAtrasado: 13,
-        emails: [
-          "capju.eps.mds@gmail.com",
-        ],
+        emails: ["capju.eps.mds@gmail.com"],
       },
       {
         fluxo: "Fluxo trabalhista",
@@ -77,9 +65,7 @@ class EmailController {
         dataInicio: "10/01/2023",
         duracao: 3,
         tempoAtrasado: 4,
-        emails: [
-          "capju.eps.mds@gmail.com",
-        ],
+        emails: ["capju.eps.mds@gmail.com"],
       },
       {
         fluxo: "Fluxo trabalhista",
@@ -88,10 +74,8 @@ class EmailController {
         dataInicio: "18/01/2023",
         duracao: 1,
         tempoAtrasado: 2,
-        emails: [
-          "capju.eps.mds@gmail.com",
-        ],
-      }
+        emails: ["capju.eps.mds@gmail.com"],
+      },
     ];
 
     const fluxos = json;
@@ -122,7 +106,7 @@ class EmailController {
     const message = {
       from: "capju.eps.mds@gmail.com",
       to: EmailFilter,
-      subject: "Atrasos nos processos",
+      subject: "CAPJU - relatório de processos atrasados",
       text: "Olá, esse é um e-mail automático para informar os processos atrasados.",
       html: `
       <!DOCTYPE html>
@@ -201,8 +185,9 @@ class EmailController {
           </tr>
         </thead>
         <tbody>
-          ${fluxos.map( (fluxo) => {
-            return `
+          ${fluxos
+            .map((fluxo) => {
+              return `
             <tr>
               <td>${fluxo.fluxo}</td>
               <td>${fluxo.processo}</td>
@@ -211,8 +196,9 @@ class EmailController {
               <td>${fluxo.duracao}</td>
               <td>${fluxo.tempoAtrasado}</td>
             </tr>
-            `
-          }).join('')}
+            `;
+            })
+            .join("")}
         </tbody>
       </table>
       <figure>
